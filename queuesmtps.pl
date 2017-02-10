@@ -3,7 +3,7 @@ use strict;
 use Net::SMTP;
 use Netscaler::KAS;
 
-sub smtp_queue_probe
+sub smtps_queue_probe
 {
     if(scalar(@_) < 3)
     {
@@ -30,4 +30,4 @@ sub smtp_queue_probe
     return 0;
 }
 
-probe(\&smtp_queue_probe);
+probe(\&smtps_queue_probe);
