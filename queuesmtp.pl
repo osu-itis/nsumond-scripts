@@ -19,13 +19,13 @@ sub smtp_queue_probe
     $smtp->recipient($to_addr)
         or return(3,"RCPT TO rejected - ".$smtp->message());
     $smtp->data
-        or return(4,"DATA rejected - $!");
+        or return(4,"DATA rejected - ".$smtp->message());
     $smtp->datasend("To: $to_addr\n");
     $smtp->datasend("From: $from_addr\n");
     $smtp->datasend("\n");
     $smtp->datasend("This is a test email from a Netscaler probe\n");
     $smtp->dataend
-        or return(5,"DATA error - $!");
+        or return(5,"DATA error - ".$smtp->message());
     $smtp->quit;
     return 0;
 }

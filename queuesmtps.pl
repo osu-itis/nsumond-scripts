@@ -1,4 +1,7 @@
 #!/usr/bin/perl -w
+
+# NOTICE - our netscaler doesn't support smtp::ssl..do not use!
+
 use strict;
 use Net::SMTP;
 use Netscaler::KAS;
